@@ -1,10 +1,9 @@
 package iammert.com.androidarchitecture.ui.detail;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
-import androidx.lifecycle.LifecycleRegistryOwner;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import androidx.databinding.DataBindingUtil;
@@ -13,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
-
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
@@ -48,8 +46,7 @@ public class MovieDetailActivity extends AppCompatActivity implements LifecycleO
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_movie_detail);
-        movieDetailViewModel = ViewModelProviders.of(this, viewModelFactory).get(MovieDetailViewModel.class);
-
+        movieDetailViewModel = new ViewModelProvider(this,viewModelFactory).get(MovieDetailViewModel.class);
         setSupportActionBar(binding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -60,14 +57,13 @@ public class MovieDetailActivity extends AppCompatActivity implements LifecycleO
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                ActivityCompat.finishAfterTransition(this);
-                break;
+        if (item.getItemId() == android.R.id.home) {
+            ActivityCompat.finishAfterTransition(this);
         }
         return super.onOptionsItemSelected(item);
     }
 
+    @NonNull
     @Override
     public LifecycleRegistry getLifecycle() {
         return lifecycleRegistry;

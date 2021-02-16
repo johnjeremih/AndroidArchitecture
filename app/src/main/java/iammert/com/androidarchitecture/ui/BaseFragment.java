@@ -25,7 +25,7 @@ import dagger.android.support.AndroidSupportInjection;
 
 public abstract class BaseFragment<VM extends ViewModel, DB extends ViewDataBinding> extends Fragment implements LifecycleRegistryOwner {
 
-    private LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
+    private final LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;

@@ -34,6 +34,7 @@ public class MovieRepository {
             @Override
             protected void saveCallResult(@NonNull MoviesResponse item) {
                 movieDao.saveMovies(item.getResults());
+
             }
 
             @NonNull

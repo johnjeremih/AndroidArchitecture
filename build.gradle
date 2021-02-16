@@ -8,7 +8,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
+        classpath 'com.android.tools.build:gradle:4.1.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -28,10 +28,10 @@ task clean(type: Delete) {
 }
 
 ext {
-    daggerVersion = '2.25.2'
-    retrofitVersion = '2.6.2'
-    gsonConverterVersion = '2.6.2'
-    okhttpVersion = '4.2.2'
+    daggerVersion = '2.32'
+    retrofitVersion = '2.9.0'
+    gsonConverterVersion = '2.9.0'
+    okhttpVersion = '5.0.0-alpha.2'
     picassoVersion = '2.71828'
     archVersion = '1.0.0-alpha1'
     roomVersion = '2.2.1'

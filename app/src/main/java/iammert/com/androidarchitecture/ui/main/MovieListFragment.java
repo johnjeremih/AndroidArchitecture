@@ -51,7 +51,7 @@ public class MovieListFragment extends BaseFragment<MovieListViewModel, Fragment
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         viewModel.getPopularMovies()
-                .observe(this, listResource -> dataBinding.setResource(listResource));
+                .observe(getViewLifecycleOwner(), listResource -> dataBinding.setResource(listResource));
     }
 
     @Override

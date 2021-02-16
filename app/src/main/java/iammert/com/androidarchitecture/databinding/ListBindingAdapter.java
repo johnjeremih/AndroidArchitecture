@@ -19,8 +19,8 @@ public final class ListBindingAdapter{
         if(adapter == null)
             return;
 
-        if(resource == null || resource.data == null)
-            return;
+        if(resource == null || resource.data == null) {
+        }
 
     }
 }
